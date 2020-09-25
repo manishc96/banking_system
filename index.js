@@ -2,15 +2,15 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 app.use(cors());
+const dotenv = require('dotenv');
+dotenv.config();
 const user = require('./routes/users');
 const userdb = require('./model/user');
 const accountsdb = require('./model/accounts')
-
-
 const accounts = require('./routes/accounts');
 const auth = require('./routes/auth');
 app.use(express.json());
-let port = 3000;
+const port = process.env.PORT || 3000;
 userdb.user;
 accountsdb.accounts;
 

@@ -35,9 +35,7 @@ module.exports = {
         depositOne: async function (id, deposit) {
             amount = await this.getBalanceAmount(id);
             let prevAmount = parseInt(amount[0].balance_amount);
-            console.log(prevAmount);
             let balanceAmount = 0;
-            console.log(typeof deposit)
             balanceAmount = prevAmount + deposit;
             return knex('accounts').where('id', id).update({ 'deposit': deposit, 'balance_amount': balanceAmount })
         }
