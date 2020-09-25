@@ -8,7 +8,7 @@ router.get('/', (req, res) => {
         res.json(users));
 });
 router.post('/', (req, res) => {
-    queries.accounts.create(req.body).then((result) => {
+    queries.accounts.create({ user_id: req.body.user_id, accType: req.body.accType }).then((result) => {
         res.status(201).send({ message: 'created' });
     })
 });
@@ -33,8 +33,6 @@ router.put('/deposit/:id', async (req, res) => {
         .then((user) => {
             res.json({ message: `updated` })
         })
-
-
 });
 
 

@@ -5,7 +5,6 @@ const queries = require('../controller/login')
 router.post('/login', (req, res) => {
     queries.userLogin.getOne(req.body.userName, req.body.password).then((user) => {
         if (user) {
-
             let token = jwt.sign({ user: this.user, isBanker: user.isBanker }, 'shhhh')
             res.header(`x-auth-token`, token).send({
                 message: "login successful", d: token, userId: user.id, isBanker: user.isBanker

@@ -5,17 +5,13 @@ const queries = require('../controller/user');
 router.get('/', (req, res) => {
 
     queries.user.getAll().then((users) => {
-        console.log(req.user);
         res.json(users)
     });
 });
 router.post('/', async (req, res) => {
     queries.user.create(req.body).then((result) => {
-
         res.status(201).send({ message: 'created' });
     }
-
-
     )
 });
 router.get('/allinfo/:id', async (req, res) => {

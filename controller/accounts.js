@@ -24,11 +24,10 @@ module.exports = {
             let balanceAmount = 0;
             if (prevAmount > withdraw) {
                 balanceAmount = prevAmount - withdraw;
-                console.log(prevAmount)
             } else {
                 return;
             }
-            console.log(balanceAmount);
+
             return knex('accounts').where('id', id).update({ 'withdraw': withdraw, 'balance_amount': balanceAmount })
 
         },
